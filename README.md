@@ -10,7 +10,8 @@ A high-performance, production-ready Rate Limiting system designed for distribut
 ## 📐 System Architecture
 > **Note:** Below is the logical flow of the system. I designed this to be stateless, allowing it to scale across multiple server instances effortlessly.
 
-![System Architecture](./path-to-your-excalidraw-image.png)
+![Fixed Window Algorithm With Redis DB](./Diagrams/FixedWindow.png)
+![System Architecture](./Diagrams/FloatingWindow.png)
 
 ---
 
