@@ -4,7 +4,7 @@ import Client from "../client/client.js";
   try {
     const key = `rate:${req.ip}`;
     const limit = 5;
-    const window = 100;
+    const window = 1000;
     // Atomic INCR ensures thread-safety in a distributed environment.
     //When different servers connect to the same database, they all access the same data.
     //If one server updates the current value (for example, increases a count to 1), the other servers will see the updated value when they read from the database.
@@ -34,7 +34,7 @@ export const redisFloatMiddelwear = async (req, res, next) => {
   const key = `rate:${req.ip}`;
   const now = Date.now();
   const limit = 5;
-  const window = 6000; // 1 minute in milliseconds
+  const window = 60000; // 1 minute in milliseconds
   try {
     // Multi-step logic using Redis Sorted Sets (ZSET)
     // Add current timestamp as both score and value
@@ -55,7 +55,7 @@ export const redisFloatMiddelwear = async (req, res, next) => {
     await Client.expire(key, window);
     next();
   } catch (error) {
-    console.error("Redis Error:", err);
+    console.error("Redis Error:", error);
     next();
   }
 };
