@@ -53,12 +53,15 @@ The middleware is wrapped in `try-catch` blocks. If the Redis connection fails, 
 ├── middelWear
          ├── redisMiddelWear.js   # Fixed & Floating logic implementation
 └── README.md           # Documentation.
-
+```
 ###  How to Run
-
+```
 Start Redis: docker run -p 6379:6379 -d redis
 
 Install Deps: npm install
-
-Run App: cd server
-        node server.js
+```
+## Run server:
+```
+cd server
+node server.js
+```
